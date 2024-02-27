@@ -1,7 +1,5 @@
 "use server";
 
-import notFound from "../not-found";
-
 export const server = async (urlLink: string) => {
   try {
     const res = await fetch(urlLink);

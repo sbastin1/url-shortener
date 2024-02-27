@@ -2,11 +2,14 @@
   "name": "url-shortener",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "checkDB": "node ./app/actions/checkDB.js",
+    "clearDB": "node ./app/actions/clearDB.js"
   },
   "dependencies": {
     "@prisma/client": "^5.10.2",

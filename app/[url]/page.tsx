@@ -1,20 +1,25 @@
 import { notFound, redirect } from "next/navigation";
+import prisma from "@/prisma/db";
+import { disconnectDB } from "../actions/disconnect";
+
+import chalk from "chalk";
 
 export default async function page({ params }: { params: { url: string } }) {
-  async function Redirector() {
-    // Try to fetch original link
-    try {
-      const res = await fetch("http://localhost:4000/links/" + params.url);
+  // Try to fetch original link
 
-      const ress = await res.json();
+  let links = await prisma.link.findUnique({
+    where: {
+      id: params.url,
+    },
+  });
+  console.log(chalk.yellow.bold(links?.link));
+  disconnectDB();
 
-      return ress.link;
-    } catch {
-      notFound();
-    }
+  if (links?.link === undefined) {
+    console.log(chalk.red.bold("Redirect failed"));
+    notFound();
+  } else {
+    console.log("Redirect is succesful");
+    redirect(`${links.link}`);
   }
-
-  const ShortenedURL = await Redirector();
-  // Redirect to original link
-  redirect(`${ShortenedURL}`);
 }
