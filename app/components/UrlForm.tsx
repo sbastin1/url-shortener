@@ -107,12 +107,12 @@ export default function UrlForm() {
             </span>
           )}
           {!isLoading && (
-            <span className="text-[#171717] font-semibold">Shorten</span>
+            <span className="text-white font-semibold">Shorten</span>
           )}
         </button>
       </div>
 
-      <div id="container">
+      <div id="container" className="absolute left-0 right-0">
         {isSucess && (
           <div className="bg-[#EDEDED] w-[45em] text-2xl m-auto rounded-2xl overflow-hidden mt-10 p-6">
             <div className=" ">

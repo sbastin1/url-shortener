@@ -58,7 +58,7 @@ export default function TitleAnim() {
 
   return (
     <>
-      <div className="flex mt-[10em] justify-center">
+      <div className="flex mt-[12em] justify-center">
         <h1 className="overflow-hidden text-[4em] text-white whitespace-nowrap ">
           {title}
         </h1>
