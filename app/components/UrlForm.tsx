@@ -84,12 +84,12 @@ export default function UrlForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="">
-      <div className="flex justify-center mt-64">
+    <form id="main" onSubmit={handleSubmit} className="">
+      <div className="flex justify-center mt-20">
         <div className="relative">
           <input
             placeholder="Type in your url"
-            className="text-center w-[40em] p-4 rounded-l-xl text-2xl bg-[#EDEDED]"
+            className="text-center w-[32em] p-4 rounded-l-xl text-2xl bg-[#EDEDED]"
             onChange={handleChange}
             value={urlLink}
           />
@@ -106,7 +106,9 @@ export default function UrlForm() {
               <ScaleLoader height={7} color="#ffffff" />
             </span>
           )}
-          {!isLoading && <span>Shorten</span>}
+          {!isLoading && (
+            <span className="text-[#171717] font-semibold">Shorten</span>
+          )}
         </button>
       </div>
 
