@@ -1,0 +1,36 @@
+.textbox-false {
+  top: -664px;
+}
+
+.textbox-true {
+  top: 0px;
+}
+.button-false {
+  top: 0;
+}
+.button-true {
+  top: 664px;
+}
+
+.textbox-transition {
+  transition: 1s ease-in-out;
+  transition-property: top;
+}
+
+.button-transition {
+  transition: top 1s ease-in-out, height 0.2s linear;
+}
+
+.button-hover:hover {
+  height: 50px;
+}
+
+.button-text {
+  margin-top: 8px;
+  transition: 0.2s linear;
+}
+
+.button-hover:hover .button-text {
+  margin-top: 18px;
+  transition: 0.2s linear;
+}

@@ -62,7 +62,6 @@ export default function UrlForm() {
     } catch (e) {
       console.log("Catch triggered in newUrlForm.tsx:64");
     }
-    console.log("PLACMEMENT HERE");
     setTimeout(() => {
       setIsLoading(false);
     }, 500),
@@ -89,7 +88,7 @@ export default function UrlForm() {
         <div className="relative">
           <input
             placeholder="Type in your url"
-            className="text-center w-[32em] p-4 rounded-l-xl text-2xl bg-[#EDEDED]"
+            className="text-center w-[32em] p-4 rounded-l-xl rounded-r-2xl text-2xl bg-[#EDEDED] outline-none"
             onChange={handleChange}
             value={urlLink}
           />
@@ -98,7 +97,7 @@ export default function UrlForm() {
           </p>
         </div>
         <button
-          className="bg-[#DA0037] p-4 rounded-r-xl text-2xl w-[5em]"
+          className="bg-[#DA0037] p-4 rounded-r-xl text-2xl w-[5em] absolute ml-[27em]"
           disabled={isLoading && !isValidUrl}
         >
           {isLoading && (
