@@ -45,11 +45,11 @@ export default function InfoCard() {
   return (
     <>
       <div
-        className={`textbox-transition absolute w-[27em] h-[56em] bg-white right-0 left-0 m-auto rounded-b-2xl z-10 ${
+        className={`textbox-transition absolute w-[27em] h-[56em] bg-white right-0 left-0 m-auto rounded-b-2xl z-10 lg:w-[45em] ${
           isOpened ? "textbox-true" : "textbox-false"
         }`}
       >
-        <div className="flex flex-col gap-4 text-center font-semibold text-lg w-[20em] m-auto mt-2">
+        <div className="flex flex-col gap-4 text-center font-semibold text-lg w-[20em] m-auto mt-2 lg:w-[35em]">
           <h1 className="text-red-600 font-extrabold text-4xl">Warning!</h1>
           <p className="text-red-600 text-lg">
             This Url Shortener has been created and is being hosted for
@@ -76,7 +76,7 @@ export default function InfoCard() {
             link.
           </p>
 
-          <form onSubmit={handleSubmit} className="flex flex-col">
+          <form onSubmit={handleSubmit} className="flex flex-col lg:mt-10">
             <div className="flex flex-row">
               <button
                 type="button"
@@ -112,17 +112,17 @@ export default function InfoCard() {
                 Update URL
               </button>
             </div>
-            <div className="flex flex-row h-14 mt-4 justify-evenly">
+            <div className="flex flex-row h-14 mt-4 m-autogit ls-files | xargs wc -l lg:flex-col lg:mt-6 lg:gap-4 lg:items-end lg:mr-[5em] lg:h-[8em]">
               <input
                 placeholder="Old ID eg. id453546"
-                className="w-[10em] text-center rounded-lg text-[0.8rem] border-lime-400 px-2 border-4 outline-none"
+                className="w-[10em] text-center rounded-lg text-[0.8rem] border-lime-400 border-4 px-2  outline-none lg:h-[4em]"
                 onChange={handleChangeShortUrl}
                 value={isOldId}
               />
 
               <input
                 placeholder="Custom ID"
-                className="w-[10em] text-center rounded-lg text-[0.8rem] border-lime-400 px-2 border-4 outline-none"
+                className="w-[10em] text-center rounded-lg text-[0.8rem] border-lime-400 px-2 border-4 outline-none lg:h-[4em]"
                 onChange={handleChangeCustomId}
                 value={isCustomId}
               />

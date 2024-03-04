@@ -8,7 +8,7 @@ import arrow_right from "../assets/arrow_right.svg";
 export default function InfoContainer() {
   return (
     <>
-      <div className="flex flex-col mt-[25em] bg-[#111111] ">
+      <div className="flex flex-col mt-[25em] bg-[#111111] xl:mt-[13em] xl:flex-row">
         <section className="text-white m-auto">
           <Image className="m-auto" src={link} alt="Link Icon" height={150} />
           <h1 className="w-[20rem] text-center m-auto text-xl">
@@ -16,7 +16,7 @@ export default function InfoContainer() {
           </h1>
         </section>
         <Image
-          className="m-auto rotate-90"
+          className="m-auto rotate-90 xl:rotate-0"
           src={arrow_right}
           alt="Right Arrow"
           height={150}
@@ -34,7 +34,7 @@ export default function InfoContainer() {
           </h1>
         </section>
         <Image
-          className="m-auto rotate-90"
+          className="m-auto rotate-90 xl:rotate-0"
           src={arrow_right}
           alt="Right Arrow"
           height={150}
