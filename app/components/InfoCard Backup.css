@@ -1,5 +1,5 @@
 .textbox-false {
-  top: -56em;
+  top: -664px;
 }
 
 .textbox-true {
@@ -9,7 +9,7 @@
   top: 0;
 }
 .button-true {
-  top: 56em;
+  top: 664px;
 }
 
 .textbox-transition {

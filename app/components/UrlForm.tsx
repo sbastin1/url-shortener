@@ -83,37 +83,39 @@ export default function UrlForm() {
   };
 
   return (
-    <form id="main" onSubmit={handleSubmit} className="">
-      <div className="flex justify-center mt-20">
-        <div className="relative">
-          <input
-            placeholder="Type in your url"
-            className="text-center w-[32em] p-4 rounded-l-xl rounded-r-2xl text-2xl bg-[#EDEDED] outline-none"
-            onChange={handleChange}
-            value={urlLink}
-          />
-          <p className=" text-[#DA0037] absolute text-xl">
-            {!isValidUrl && <span>This is not a valid url!</span>}
-          </p>
-        </div>
-        <button
-          className="bg-[#DA0037] p-4 rounded-r-xl text-2xl w-[5em] absolute ml-[27em]"
-          disabled={isLoading && !isValidUrl}
-        >
-          {isLoading && (
-            <span>
-              <ScaleLoader height={7} color="#ffffff" />
-            </span>
-          )}
-          {!isLoading && (
-            <span className="text-white font-semibold">Shorten</span>
-          )}
-        </button>
-      </div>
+    <form
+      id="main"
+      onSubmit={handleSubmit}
+      className="flex flex-col justify-center mt-20"
+    >
+      <input
+        placeholder="Type in your url"
+        className="text-center m-auto w-[20em] p-4 rounded-2xl text-2xl bg-[#EDEDED] outline-none"
+        onChange={handleChange}
+        value={urlLink}
+      />
+      <p className=" text-[#DA0037] absolute text-xl">
+        {!isValidUrl && <span>This is not a valid url!</span>}
+      </p>
 
+      <button
+        className="bg-[#DA0037] p-4 rounded-2xl text-2xl w-[10em] m-auto mt-12"
+        disabled={isLoading && !isValidUrl}
+      >
+        {isLoading && (
+          <span>
+            <ScaleLoader height={7} color="#ffffff" />
+          </span>
+        )}
+        {!isLoading && (
+          <span className="text-white font-semibold">Shorten</span>
+        )}
+      </button>
+
+      {/* Form Output */}
       <div id="container" className="absolute left-0 right-0">
         {isSucess && (
-          <div className="bg-[#EDEDED] w-[45em] text-2xl m-auto rounded-2xl overflow-hidden mt-10 p-6">
+          <div className="bg-[#EDEDED] w-[20em] text-2xl m-auto rounded-2xl mt-[18em] p-6">
             <div className=" ">
               <h1 className="flex justify-left font-bold">{isTitle}</h1>
               <a
