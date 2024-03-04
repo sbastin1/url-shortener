@@ -94,9 +94,12 @@ export default function UrlForm() {
         onChange={handleChange}
         value={urlLink}
       />
-      <p className=" text-[#DA0037] absolute text-xl">
-        {!isValidUrl && <span>This is not a valid url!</span>}
-      </p>
+
+      {!isValidUrl && (
+        <span className="text-[#DA0037] text-xl absolute left-[32em]">
+          This is not a valid url!
+        </span>
+      )}
 
       <button
         className="bg-[#DA0037] p-4 rounded-2xl text-2xl w-[10em] m-auto mt-12"
@@ -113,48 +116,47 @@ export default function UrlForm() {
       </button>
 
       {/* Form Output */}
-      <div id="container" className="absolute left-0 right-0">
-        {isSucess && (
-          <div className="bg-[#EDEDED] w-[20em] text-2xl m-auto rounded-2xl mt-[18em] p-6">
-            <div className=" ">
-              <h1 className="flex justify-left font-bold">{isTitle}</h1>
-              <a
-                target="_blank"
-                href={
-                  regex2.test(urlLink) ? (urlLink = prefix + urlLink) : urlLink
-                }
-                className="flex justify-left"
-              >
-                {regex2.test(urlLink) ? (urlLink = prefix + urlLink) : urlLink}
-              </a>
-            </div>
-            <hr className="bg-[#bbbbbb] mt-2 mb-2 h-1 rounded-2xl" />
-            <div className="flex">
-              <a
-                // href={`localhost:3000/${isDeclared.current}`}
-                href={
-                  regex2.test(urlLink) ? (urlLink = prefix + urlLink) : urlLink
-                }
-                className="text-[#DA0037]"
-              >{`localhost:3000/${isDeclared.current}`}</a>
-              {!isCopy ? (
-                <FaRegCopy
-                  className="text-[#171717] mt-1 ml-2 cursor-pointer"
-                  onClick={handleClick}
-                />
-              ) : (
-                <ClipLoader
-                  color="#171717"
-                  size={20}
-                  className="mt-2 ml-2"
-                  loading
-                />
-              )}
-            </div>
-            {isOffline && <h2 className="text-2xl text-red-700">OFFLINE</h2>}
+
+      {isSucess && (
+        <div className="bg-[#EDEDED] w-[20em] text-2xl m-auto rounded-2xl mt-[2em] p-6">
+          <div className=" ">
+            <h1 className="flex justify-left font-bold">{isTitle}</h1>
+            <a
+              target="_blank"
+              href={
+                regex2.test(urlLink) ? (urlLink = prefix + urlLink) : urlLink
+              }
+              className="flex justify-left"
+            >
+              {regex2.test(urlLink) ? (urlLink = prefix + urlLink) : urlLink}
+            </a>
           </div>
-        )}
-      </div>
+          <hr className="bg-[#bbbbbb] mt-2 mb-2 h-1 rounded-2xl" />
+          <div className="flex">
+            <a
+              // href={`localhost:3000/${isDeclared.current}`}
+              href={
+                regex2.test(urlLink) ? (urlLink = prefix + urlLink) : urlLink
+              }
+              className="text-[#DA0037]"
+            >{`localhost:3000/${isDeclared.current}`}</a>
+            {!isCopy ? (
+              <FaRegCopy
+                className="text-[#171717] mt-1 ml-2 cursor-pointer"
+                onClick={handleClick}
+              />
+            ) : (
+              <ClipLoader
+                color="#171717"
+                size={20}
+                className="mt-2 ml-2"
+                loading
+              />
+            )}
+          </div>
+          {isOffline && <h2 className="text-2xl text-red-700">OFFLINE</h2>}
+        </div>
+      )}
     </form>
   );
 }

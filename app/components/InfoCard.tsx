@@ -37,6 +37,8 @@ export default function InfoCard() {
       return;
     }
 
+    setIsInputEmpty(false);
+
     updateUrl(isOldId, isCustomId);
   };
 
@@ -118,12 +120,6 @@ export default function InfoCard() {
                 value={isOldId}
               />
 
-              {isInputEmpty && (
-                <p className="absolute text-[0.7rem] text-red-700 ">
-                  Your Inputs can not be empty
-                </p>
-              )}
-
               <input
                 placeholder="Custom ID"
                 className="w-[10em] text-center rounded-lg text-[0.8rem] border-lime-400 px-2 border-4 outline-none"
@@ -133,8 +129,13 @@ export default function InfoCard() {
             </div>
           </form>
 
+          {isInputEmpty && (
+            <p className="absolute text-[0.7rem] text-red-700 top-[74em] right-0 left-0 m-auto">
+              Your Inputs can not be empty
+            </p>
+          )}
           {isResponse && (
-            <p className="absolute text-left top-[41em] ml-24 text-sm">
+            <p className="absolute left-6 top-[54.1em] ml-24 text-sm">
               DB has been sucessfully cleared
             </p>
           )}
