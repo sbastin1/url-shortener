@@ -131,7 +131,10 @@ export default function UrlForm() {
             <hr className="bg-[#bbbbbb] mt-2 mb-2 h-1 rounded-2xl" />
             <div className="flex">
               <a
-                href={`localhost:3000/${isDeclared.current}`}
+                // href={`localhost:3000/${isDeclared.current}`}
+                href={
+                  regex2.test(urlLink) ? (urlLink = prefix + urlLink) : urlLink
+                }
                 className="text-[#DA0037]"
               >{`localhost:3000/${isDeclared.current}`}</a>
               {!isCopy ? (
