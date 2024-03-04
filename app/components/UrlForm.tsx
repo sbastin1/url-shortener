@@ -118,7 +118,7 @@ export default function UrlForm() {
       {/* Form Output */}
 
       {isSucess && (
-        <div className="bg-[#EDEDED] w-[20em] text-2xl m-auto rounded-2xl mt-[2em] p-6">
+        <div className="bg-[#EDEDED] w-[20em] text-2xl m-auto rounded-2xl p-6 absolute right-0 left-0 bottom-[8em]">
           <div className=" ">
             <h1 className="flex justify-left font-bold">{isTitle}</h1>
             <a
