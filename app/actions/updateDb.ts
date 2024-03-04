@@ -3,12 +3,17 @@
 import prisma from "@/prisma/db";
 
 export default async function updateUrl(oldId: string, newId: string) {
-  const updateLink = await prisma.link.update({
-    where: {
-      id: oldId,
-    },
-    data: {
-      id: newId,
-    },
-  });
+  let test = false;
+  try {
+    const updateLink = await prisma.link.update({
+      where: {
+        id: oldId,
+      },
+      data: {
+        id: newId,
+      },
+    });
+  } catch (err) {
+    console.log(err);
+  }
 }
