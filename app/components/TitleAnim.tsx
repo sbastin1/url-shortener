@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { useRef } from "react";
 import "../globals.css";
 
 export default function TitleAnim() {
@@ -9,6 +8,7 @@ export default function TitleAnim() {
 
   const [title, setTitle] = useState("");
 
+  // Fisher Yates Algo || Terrible for a typewriter but im too lazy to change it :/
   function shuffleArray(array: Array<String>) {
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -20,17 +20,16 @@ export default function TitleAnim() {
     // 2. Split string into it's letters
     shuffleArray(titles);
     setTimeout(() => {
+      let splitTitle: string = "";
       let letter = titles[0].split("");
 
-      //
-      let splitTitle: string = "";
-      function loopss() {
+      //Deletes the title step by step and repeats the function
+      function DeleteAndRepeat() {
         for (let i = 0; i < letter.length; i++) {
           setTimeout(() => {
             splitTitle = splitTitle.substring(0, splitTitle.length - 1);
             setTitle(splitTitle);
             if (i === letter.length - 1) {
-              // reDeclare();
               animatedTitle();
             }
           }, 300 * (i + 1));
@@ -44,7 +43,7 @@ export default function TitleAnim() {
           setTitle(splitTitle);
           if (i === letter.length - 1) {
             setTimeout(() => {
-              loopss();
+              DeleteAndRepeat();
             }, 3000);
           }
         }, 300 * (i + 1));

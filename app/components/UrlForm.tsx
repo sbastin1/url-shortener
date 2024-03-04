@@ -16,17 +16,17 @@ export default function UrlForm() {
   const [isCopy, setIsCopy] = useState(false);
   const isDeclared = useRef("");
 
-  const fetchTitle = async () => {
-    const { title, offline } = await server(urlLink);
-    setIsTitle(title);
-    setIsOffline(offline);
-  };
-
   const prefix = "http://";
   const regex1 =
     /(http|ftp|https):\/\/([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-])/;
   const regex2 =
     /^([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-])$/;
+
+  const fetchTitle = async () => {
+    const { title, offline } = await server(urlLink);
+    setIsTitle(title);
+    setIsOffline(offline);
+  };
 
   // Check if link is valid
   const isValidLink = () => {
@@ -117,6 +117,7 @@ export default function UrlForm() {
             <div className=" ">
               <h1 className="flex justify-left font-bold">{isTitle}</h1>
               <a
+                target="_blank"
                 href={
                   regex2.test(urlLink) ? (urlLink = prefix + urlLink) : urlLink
                 }

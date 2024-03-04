@@ -1,15 +1,44 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { ChangeEvent, useState } from "react";
 import "./InfoCard.css";
 import Image from "next/image";
 import TrashCan from "../assets/trashcan.svg";
 import Update from "../assets/update.svg";
+import Github from "../assets/github-mark.svg";
 import ClearDb from "../actions/clearDb";
+import updateUrl from "../actions/updateDb";
 
 export default function InfoCard() {
   const [isOpened, setIsOpened] = useState(false);
   const [isResponse, setIsResponse] = useState(false);
+  const [isOldId, setIsOldId] = useState("");
+  const [isCustomId, setIsCustomId] = useState("");
+  const [isInputEmpty, setIsInputEmpty] = useState(false);
+
+  const handleChangeShortUrl = (e: ChangeEvent<HTMLInputElement>) => {
+    setIsOldId(e.target.value);
+  };
+
+  const handleChangeCustomId = (e: ChangeEvent<HTMLInputElement>) => {
+    setIsCustomId(e.target.value);
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (isOldId === "") {
+      setIsInputEmpty(true);
+      return;
+    }
+
+    if (isCustomId === "") {
+      setIsInputEmpty(true);
+      return;
+    }
+
+    updateUrl(isOldId, isCustomId);
+  };
 
   return (
     <>
@@ -19,7 +48,7 @@ export default function InfoCard() {
             isOpened ? "textbox-true" : "textbox-false"
           }`}
         >
-          <div className="flex flex-col gap-4 text-center font-semibold text-lg w-[38em] m-auto">
+          <div className="flex flex-col gap-4 text-center font-semibold text-lg w-[38em] m-auto mt-2">
             <h1 className="text-red-600 font-extrabold text-4xl">Warning!</h1>
             <p className="text-red-600">
               This Url Shortener has been created and is being hosted for
@@ -67,26 +96,65 @@ export default function InfoCard() {
                 />{" "}
                 Clear DB
               </button>
+              <form onSubmit={handleSubmit}>
+                <div className="flex justify-evenly gap-16">
+                  <div>
+                    <input
+                      placeholder="Old ID eg. id453546"
+                      className="w-28 h-full -mr-12 text-center rounded-lg text-[0.8rem] border-lime-400 px-2 border-4"
+                      onChange={handleChangeShortUrl}
+                      value={isOldId}
+                    />
 
-              <button className="bg-lime-400 p-2 rounded-xl flex pr-3">
-                <Image
-                  className="mr-1 m-auto"
-                  src={Update}
-                  alt="Update Icon"
-                  height={15}
-                  width={25}
-                />
-                Update URL
-              </button>
+                    {isInputEmpty && (
+                      <p className="absolute text-[0.7rem] text-red-700 ">
+                        Your Inputs can not be empty
+                      </p>
+                    )}
+                  </div>
+                  <div>
+                    <input
+                      placeholder="Custom ID"
+                      className="w-24 h-full -mr-12 text-center rounded-lg text-[0.8rem] border-lime-400 px-2 border-4"
+                      onChange={handleChangeCustomId}
+                      value={isCustomId}
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    className="bg-lime-400 p-2 rounded-xl flex pr-3"
+                  >
+                    <Image
+                      className="mr-1 m-auto"
+                      src={Update}
+                      alt="Update Icon"
+                      height={15}
+                      width={25}
+                    />
+                    Update URL
+                  </button>
+                </div>
+              </form>
             </div>
             {isResponse && (
               <p className="absolute text-left top-[41em] ml-24 text-sm">
                 DB has been sucessfully cleared
               </p>
             )}
-            <footer className=" mt-[36px] right-0 left-0 m-auto ">
+            <a
+              href="https://github.com/sbastin1"
+              target="_blank"
+              className="  right-0 left-0 m-auto p-4 cursor-pointer hover:text-xl credits-shadow transition-all flex"
+            >
               Made by Sebastian Wilden
-            </footer>
+              <Image
+                className="ml-4"
+                src={Github}
+                alt="Github Icon"
+                height={0}
+                width={30}
+              />
+            </a>
           </div>
         </div>
         <div
