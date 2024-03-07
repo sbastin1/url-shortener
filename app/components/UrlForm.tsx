@@ -75,7 +75,7 @@ export default function UrlForm() {
   };
   // If the click the "copy" symbol, it automatically copies the shortened link for them.
   const handleClick = () => {
-    navigator.clipboard.writeText(`localhost:3000/${isDeclared.current}`);
+    navigator.clipboard.writeText(`url.venatric.net/${isDeclared.current}`);
     setIsCopy(true);
     setTimeout(() => {
       setIsCopy(false);
@@ -134,12 +134,11 @@ export default function UrlForm() {
           <hr className="bg-[#bbbbbb] mt-2 mb-2 h-1 rounded-2xl" />
           <div className="flex">
             <a
-              // href={`localhost:3000/${isDeclared.current}`}
               href={
                 regex2.test(urlLink) ? (urlLink = prefix + urlLink) : urlLink
               }
               className="text-[#DA0037]"
-            >{`localhost:3000/${isDeclared.current}`}</a>
+            >{`url.venatric.net/${isDeclared.current}`}</a>
             {!isCopy ? (
               <FaRegCopy
                 className="text-[#171717] mt-1 ml-2 cursor-pointer"
