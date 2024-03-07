@@ -90,7 +90,7 @@ export default function UrlForm() {
     >
       <input
         placeholder="Type in your url"
-        className="text-center m-auto w-[20em] p-4 rounded-2xl text-2xl bg-[#EDEDED] outline-none lg:w-[34em] xl:rounded-r-3xl"
+        className="text-center m-auto max-w-[15em] p-4 rounded-2xl text-2xl bg-[#EDEDED] outline-none lg:min-w-[34em] xl:rounded-r-3xl"
         onChange={handleChange}
         value={urlLink}
       />
@@ -118,7 +118,7 @@ export default function UrlForm() {
       {/* Form Output */}
 
       {isSucess && (
-        <div className="bg-[#EDEDED] w-[20em]  text-2xl m-auto rounded-2xl p-6 absolute right-0 left-0 bottom-[7em] lg:w-[34em] xl:bottom-[12em]">
+        <div className="bg-[#EDEDED] max-w-[20em] text-2xl m-auto rounded-2xl p-6 absolute right-0 left-0 bottom-[-2em] lg:max-w-[34em] xl:bottom-[12em]">
           <div className=" ">
             <h1 className="flex justify-left font-bold">{isTitle}</h1>
             <a

@@ -45,7 +45,7 @@ export default function InfoCard() {
   return (
     <>
       <div
-        className={`textbox-transition absolute w-[27em] h-[56em] bg-white right-0 left-0 m-auto rounded-b-2xl z-10 lg:w-[45em] ${
+        className={`textbox-transition absolute max-w-[27em] h-[56em] bg-white right-0 left-0 m-auto rounded-b-2xl z-10 lg:max-w-[45em] ${
           isOpened ? "textbox-true" : "textbox-false"
         }`}
       >
@@ -130,7 +130,7 @@ export default function InfoCard() {
           </form>
 
           {isInputEmpty && (
-            <p className="absolute text-[0.7rem] text-red-700 top-[74em] right-0 left-0 m-auto">
+            <p className="absolute text-[0.7rem] text-red-700 top-[74em] right-0 left-0 m-auto lg:top-[70em] lg:left-[29em]">
               Your Inputs can not be empty
             </p>
           )}
