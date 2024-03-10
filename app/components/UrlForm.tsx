@@ -96,7 +96,7 @@ export default function UrlForm() {
       />
 
       {!isValidUrl && (
-        <span className="text-[#DA0037] text-xl absolute left-[32em]">
+        <span className="text-[#DA0037] text-xl absolute left-0 right-0 m-auto w-[10em] xl:mt-[2em] xl:right-[30em]">
           This is not a valid url!
         </span>
       )}
